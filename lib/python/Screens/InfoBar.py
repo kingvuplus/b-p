@@ -30,10 +30,10 @@ from Components.ServiceEventTracker import ServiceEventTracker, InfoBarBase
 
 profile("LOAD:HelpableScreen")
 from Screens.HelpMenu import HelpableScreen
-
-from Blackhole.BhBlue import DeliteBp
-from Blackhole.BhGreen import DeliteGp
-from Blackhole.BhRed import BhRedp
+from Components.Label import Label
+from Screens.BhBlue import DeliteBp
+from Screens.BhGreen import DeliteGp
+from Screens.BhRed import BhRedp
 
 class InfoBar(InfoBarBase, InfoBarShowHide,
 	InfoBarNumberZap, InfoBarChannelSelection, InfoBarMenu, InfoBarEPG, InfoBarRdsDecoder, DeliteBp, DeliteGp, BhRedp,
@@ -81,7 +81,7 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 		assert InfoBar.instance is None, "class InfoBar is a singleton class and just one instance of this class is allowed!"
 		InfoBar.instance = self
 
-       def whereIAm(self):
+        def whereIAm(self):
 		ret = "Black Hole"
 		all = ["Avalon", "Chaos", "Ghost"]
 		f = open("/proc/mounts",'r')
