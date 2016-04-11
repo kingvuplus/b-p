@@ -82,7 +82,7 @@ class Menu(Screen, ProtectedScreen):
 			self.session.openWithCallback(self.menuClosed, DeliteAddons)
 		
 		elif module == "Screens.BhRed":
-			exec "from Blackhole.BhUtils import BhU_check_proc_version"
+			exec "from Screens.BhUtils import BhU_check_proc_version"
 			flash = True
 			mounted = False
 			bh_ver = BhU_check_proc_version()
