@@ -35,7 +35,7 @@ from Screens.TimeDateInput import TimeDateInput
 from Screens.UnhandledKey import UnhandledKey
 from ServiceReference import ServiceReference, isPlayableForCur
 #Blackhole
-from Blackhole.BhEI import Nab_ExtraInfobar, nab_Switch_Autocam
+from Screens.BhEI import Nab_ExtraInfobar, nab_Switch_Autocam
 
 from Tools import Notifications, ASCIItranslit
 from Tools.Directories import fileExists, getRecordingFilename, moveFiles
