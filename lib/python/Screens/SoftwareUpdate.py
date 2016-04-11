@@ -4,7 +4,6 @@ from Screens.ParentalControlSetup import ProtectedScreen
 from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
 from Screens.TextBox import TextBox
-from Screens.About import CommitInfo
 from Components.config import config
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.Ipkg import IpkgComponent
@@ -267,8 +266,6 @@ class UpdatePlugin(Screen, ProtectedScreen):
 			self.channellist_only = 1
 			self.slider.setValue(1)
 			self.ipkg.startCmd(IpkgComponent.CMD_LIST, args = {'installed_only': True})
-		elif answer[1] == "commits":
-			self.session.openWithCallback(boundFunction(self.ipkgCallback, IpkgComponent.EVENT_DONE, None), CommitInfo)
 		elif answer[1] == "disclaimer":
 			self.showDisclaimer(justShow=True)
 		elif answer[1] == "showlist":
