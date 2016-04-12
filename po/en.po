@@ -4779,8 +4779,8 @@ msgstr "Restart"
 msgid "Restart GUI now?"
 msgstr "Restart GUI now?"
 
-msgid "Restart enigma"
-msgstr "Restart enigma"
+msgid "Restart BlackHole"
+msgstr "Restart BlackHole"
 
 msgid "Restart network"
 msgstr "Restart network"
