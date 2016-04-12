@@ -61,10 +61,7 @@ class DeliteBluePanel(Screen):
         self.session.open(DeliteAutocamMan)
 
     def keyRed(self):
-        self.session.open(BhEpgPanel)
-
-#    def keyRed(self):
-#        self.session.open(DeliteEpgPanel)
+        self.session.open(DeliteEpgPanel)
 
     def populate_List(self):
         self.camnames = {}
@@ -247,49 +244,6 @@ class Nab_DoStartCam(Screen):
 
     def delTimer(self):
         del self.activityTimer
-
-class BhEpgPanel(Screen):
-	skin = """
-	<screen position="center,center" size="600,400" title="Black Hole EPG Panel">
-		<widget source="list" render="Listbox" position="20,20" size="560,360" font="Regular;28" itemHeight="40"  scrollbarMode="showOnDemand" >
-			<convert type="StringList" />
-		</widget>
-	</screen>"""
-	
-	def __init__(self, session):
-		Screen.__init__(self, session)
-		
-		flist = [("EPGSettings"),("XMLTVImport"),("EPGImportFilter"),("CrossEPG"),("EPGSearch")]
-		self["list"] = List(flist)
-
-		self["actions"] = ActionMap(["WizardActions", "ColorActions"],
-		{
-			"ok": self.KeyOk,
-			"back": self.close
-
-		})
-
-
-	def KeyOk(self):
-		sel = self["list"].getCurrent()
-		if sel:
-			if sel == "CrossEPG":
-				from Plugins.SystemPlugins.CrossEPG.crossepg_main import crossepg_main
-				crossepg_main.setup(self.session)
-			elif sel == "EPGSettings":
-				from Screens.Setup import Setup
-				self.session.open(Setup, "epgsettings")
-			elif sel == "XMLTVImport":
-				from Plugins.Extensions.XMLTVImport.plugin import main as xmltv
-				xmltv(self.session)
-			elif sel == "EPGImportFilter":
-				from Plugins.Extensions.EPGImportFilter.plugin import main as epgimportfilter
-				epgimportfilter(self.session)
-			elif sel == "EPGSearch":
-				#from Plugins.Extensions.EPGSearch.plugin import main as epgsearch
-				#epgsearch(self.session)
-				from Plugins.Extensions.EPGSearch.EPGSearch import EPGSearch  as epgsearch
-				self.session.open(epgsearch)
 
 class DeliteAutocamMan(Screen):
     skin = '\n\t<screen position="240,120" size="800,520" title="Black Hole Autocam Manager">\n\t\t<widget name="defaultcam" position="10,10" size="780,30" font="Regular;24" halign="center" valign="center" backgroundColor="#9f1313" />\n\t\t<widget source="list" render="Listbox" position="20,60" size="760,400" scrollbarMode="showOnDemand" >\n\t\t\t<convert type="StringList" />\n\t\t</widget>\n    \t\t<ePixmap pixmap="skin_default/buttons/red.png" position="200,480" size="140,40" alphatest="on" />\n\t\t<ePixmap pixmap="skin_default/buttons/yellow.png" position="440,480" size="140,40" alphatest="on" />\n\t\t<widget name="key_red" position="200,480" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t<widget name="key_yellow" position="440,480" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />\n    \t</screen>'
