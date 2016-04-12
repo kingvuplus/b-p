@@ -4938,7 +4938,7 @@ msgid "Restart GUI now?"
 msgstr "Redémarrer l'interface graphique maintenant?"
 
 msgid "Restart enigma"
-msgstr "Redémarrer OpenPLi"
+msgstr "Redémarrer BlackHole"
 
 msgid "Restart network"
 msgstr "Relancer le réseau"
