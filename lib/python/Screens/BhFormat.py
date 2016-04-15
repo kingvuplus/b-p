@@ -268,6 +268,3 @@ class Bh_UsbFormat(Screen):
 
     def hreBoot(self, answer):
         self.session.open(TryQuitMainloop, 2)
-+++ okay decompyling BpFormat.pyo 
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2016.04.01 12:12:25 CET
