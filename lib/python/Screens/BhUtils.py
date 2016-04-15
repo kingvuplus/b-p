@@ -135,8 +135,8 @@ def BhU_get_Version():
 
 def BhU_check_proc_version():
     model = ''
-    if fileExists('/proc/stb/info/boxtype'):
-        f = open('/proc/stb/boxtype', 'r')
+    if fileExists('/proc/stb/info/vumodel'):
+        f = open('/proc/stb/info/vumodel', 'r')
         model = f.readline().strip()
         f.close()
     return model
