@@ -2559,7 +2559,7 @@ bool eDVBFrontend::setDeliverySystem(const char *type)
 	cmdseq.props = p;
 	cmdseq.num = 1;
 	p[0].cmd = DTV_DELIVERY_SYSTEM;
-	p[0].u.data = SYS_UNDEFINED;
+	p[1].u.data = SYS_UNDEFINED;
 
 	if (!strcmp(type, "DVB-S2"))
 	{
@@ -2577,10 +2577,11 @@ bool eDVBFrontend::setDeliverySystem(const char *type)
 	{
 		p[0].u.data = SYS_DVBT;
 	}
-	else if (!strcmp(type, "DVB-C"))
-	{
-		p[0].u.data = SYS_DVBC_ANNEX_A;
-	}
+#ifdef SYS_DVBC_ANNEX_A
+			p[1].u.data = SYS_DVBC_ANNEX_A;
+#else
+			p[1].u.data = SYS_DVBC_ANNEX_AC;
+#endif
 	else if (!strcmp(type, "ATSC"))
 	{
 		p[0].u.data = SYS_ATSC;
